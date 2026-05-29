@@ -1,0 +1,475 @@
+/* ==========================================================================
+   Indie Game Gauntlet — Main Stylesheet
+   Color Palette
+     Primary text / strong accents : #ecece9
+     Gold / secondary accents      : #f3d73e
+     Wizard Blue / links & borders : #6ab4e8
+     Background                    : #463418
+   Typography
+     Headings : "Russo One", sans-serif
+     Body     : "Helvetica", sans-serif
+   ========================================================================== */
+
+/* --- Reset & Base -------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  color: #ecece9;
+  background-color: #463418;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #6ab4e8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: #f3d73e;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Typography ---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Russo One", sans-serif;
+  color: #ecece9;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* --- Layout Utilities ---------------------------------------------------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section--alt {
+  background-color: #3a2b14;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --- Header / Navigation ------------------------------------------------- */
+.site-header {
+  background-color: #362a12;
+  border-bottom: 3px solid #f3d73e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+}
+
+.site-logo {
+  font-family: "Russo One", sans-serif;
+  font-size: 1.25rem;
+  color: #f3d73e;
+  letter-spacing: 1px;
+}
+
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #ecece9;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: #362a12;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-bottom: 3px solid #f3d73e;
+  padding: 1rem 0;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-menu li {
+  text-align: center;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #ecece9;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  background-color: rgba(243, 215, 62, 0.15);
+  color: #f3d73e;
+}
+
+/* --- Hero Banner --------------------------------------------------------- */
+.hero {
+  background: linear-gradient(135deg, #463418 0%, #362a12 60%, #2a1f0d 100%);
+  text-align: center;
+  padding: 4rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #f3d73e, #6ab4e8, #f3d73e);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: #f3d73e;
+}
+
+.hero .tagline {
+  font-size: 1.1rem;
+  color: #ecece9;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-family: "Russo One", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background-color: #f3d73e;
+  color: #463418;
+}
+
+.btn--primary:hover {
+  background-color: #e5cb30;
+  color: #463418;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid #6ab4e8;
+  color: #6ab4e8;
+}
+
+.btn--outline:hover {
+  background-color: rgba(106, 180, 232, 0.15);
+  color: #6ab4e8;
+}
+
+/* --- About / Info Sections ----------------------------------------------- */
+.features {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(106, 180, 232, 0.25);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: #f3d73e;
+  transform: translateY(-3px);
+}
+
+.feature-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+  color: #f3d73e;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Application / Embedded Form ----------------------------------------- */
+.apply {
+  text-align: center;
+}
+
+.apply h2 {
+  color: #f3d73e;
+  margin-bottom: 0.5rem;
+}
+
+.apply .subtitle {
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.form-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(106, 180, 232, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.form-wrapper iframe {
+  width: 100%;
+  min-height: 600px;
+  border: none;
+}
+
+/* --- How It Works -------------------------------------------------------- */
+.steps {
+  counter-reset: step;
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3d73e;
+  color: #463418;
+  font-family: "Russo One", sans-serif;
+  font-size: 1.1rem;
+  border-radius: 50%;
+}
+
+.step h3 {
+  margin-bottom: 0.25rem;
+}
+
+/* --- FAQ ----------------------------------------------------------------- */
+.faq-item {
+  border-bottom: 1px solid rgba(106, 180, 232, 0.2);
+  padding: 1.25rem 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-family: "Russo One", sans-serif;
+  font-size: 1.05rem;
+  color: #6ab4e8;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: #f3d73e;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  margin-top: 0.75rem;
+  opacity: 0.85;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+.site-footer {
+  background-color: #2a1f0d;
+  border-top: 3px solid #f3d73e;
+  padding: 2.5rem 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+  color: #f3d73e;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.footer-col li {
+  margin-bottom: 0.4rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid #6ab4e8;
+  border-radius: 50%;
+  color: #6ab4e8;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover {
+  background-color: #6ab4e8;
+  color: #463418;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(106, 180, 232, 0.15);
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Responsive — Tablet & Desktop (min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    border-bottom: none;
+    padding: 0;
+    gap: 0.25rem;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.2rem;
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+}
