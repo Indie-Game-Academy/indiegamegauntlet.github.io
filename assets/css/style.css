@@ -422,6 +422,252 @@ p {
   font-size: 0.8rem;
 }
 
+/* --- Season -------------------------------------------------------------- */
+.season-info {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.season-title {
+  color: #f3d73e;
+}
+
+.season-description {
+  opacity: 0.85;
+}
+
+/* Judge Roster — Character‑Select Grid */
+.judge-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  justify-items: center;
+}
+
+.judge-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(106, 180, 232, 0.3);
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  width: 100%;
+  max-width: 160px;
+  font-family: inherit;
+  color: inherit;
+}
+
+.judge-card:hover,
+.judge-card:focus {
+  border-color: #f3d73e;
+  transform: translateY(-4px);
+  box-shadow: 0 0 16px rgba(243, 215, 62, 0.3);
+  outline: none;
+}
+
+.judge-card__portrait {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(106, 180, 232, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.judge-card__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.judge-card__placeholder-icon {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.4;
+}
+
+.judge-card__name {
+  display: block;
+  font-family: "Russo One", sans-serif;
+  font-size: 0.85rem;
+  color: #ecece9;
+}
+
+/* Judge Modal */
+.judge-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+.judge-modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.judge-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.judge-modal__content {
+  position: relative;
+  background: #3a2b14;
+  border: 2px solid #f3d73e;
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  animation: modalIn 0.25s ease;
+  z-index: 1;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.judge-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: #ecece9;
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.judge-modal__close:hover {
+  color: #f3d73e;
+}
+
+.judge-modal__headshot {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #6ab4e8;
+  background: rgba(106, 180, 232, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.judge-modal__headshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.judge-modal__placeholder-icon {
+  position: absolute;
+  font-size: 3.5rem;
+  opacity: 0.4;
+}
+
+.judge-modal__name {
+  color: #f3d73e;
+  margin-bottom: 0.5rem;
+}
+
+.judge-modal__bio {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.judge-modal__socials {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.judge-modal__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #6ab4e8;
+  border-radius: 50%;
+  color: #6ab4e8;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.judge-modal__socials a:hover {
+  background-color: #6ab4e8;
+  color: #463418;
+}
+
+/* --- Friends & Sponsors -------------------------------------------------- */
+.sponsor-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.sponsor-row--tier1 .sponsor-logo {
+  max-width: 180px;
+}
+
+.sponsor-row--tier2 .sponsor-logo {
+  max-width: 130px;
+}
+
+.sponsor-row--tier3 .sponsor-logo {
+  max-width: 100px;
+}
+
+.sponsor-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(106, 180, 232, 0.2);
+  border-radius: 8px;
+  transition: border-color 0.25s ease, transform 0.2s ease;
+  color: #ecece9;
+  font-family: "Russo One", sans-serif;
+  font-size: 0.85rem;
+}
+
+a.sponsor-logo:hover,
+a.sponsor-logo:focus {
+  border-color: #f3d73e;
+  transform: translateY(-2px);
+  color: #f3d73e;
+}
+
+.sponsor-logo img {
+  max-height: 60px;
+  width: auto;
+}
+
 /* ==========================================================================
    Responsive — Tablet & Desktop (min-width: 768px)
    ========================================================================== */
