@@ -20,4 +20,137 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  /* ========================================================================
+     Judge Roster — Character‑Select Modal
+     ======================================================================== */
+
+  // Judge data — edit this object to populate judge details
+  var judgeData = {
+    "judge-1": {
+      name: "[Judge 1 Name]",
+      img: "assets/images/judge-placeholder.png",
+      bio: "[Placeholder bio for Judge 1 — describe their background, expertise, and what they bring to the show.]",
+      socials: [
+        { label: "Twitter / X", icon: "𝕏", url: "#" },
+        { label: "YouTube", icon: "▶", url: "#" }
+      ]
+    },
+    "judge-2": {
+      name: "[Judge 2 Name]",
+      img: "assets/images/judge-placeholder.png",
+      bio: "[Placeholder bio for Judge 2 — describe their background, expertise, and what they bring to the show.]",
+      socials: [
+        { label: "Twitter / X", icon: "𝕏", url: "#" }
+      ]
+    },
+    "judge-3": {
+      name: "[Judge 3 Name]",
+      img: "assets/images/judge-placeholder.png",
+      bio: "[Placeholder bio for Judge 3 — describe their background, expertise, and what they bring to the show.]",
+      socials: [
+        { label: "Twitch", icon: "🟣", url: "#" }
+      ]
+    },
+    "judge-4": {
+      name: "[Judge 4 Name]",
+      img: "assets/images/judge-placeholder.png",
+      bio: "[Placeholder bio for Judge 4 — describe their background, expertise, and what they bring to the show.]",
+      socials: []
+    }
+  };
+
+  var modal = document.getElementById("judge-modal");
+  var modalImg = document.getElementById("judge-modal-img");
+  var modalName = document.getElementById("judge-modal-name");
+  var modalBio = document.getElementById("judge-modal-bio");
+  var modalSocials = document.getElementById("judge-modal-socials");
+  var modalClose = modal ? modal.querySelector(".judge-modal__close") : null;
+  var modalBackdrop = modal ? modal.querySelector(".judge-modal__backdrop") : null;
+  var activeCard = null;
+  var prevOverflow = "";
+
+  // Wire up card image error handling to hide broken images and show placeholder
+  document.querySelectorAll(".judge-card[data-judge] .judge-card__portrait img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      img.style.display = "none";
+    });
+  });
+
+  // Wire up sponsor image error handling — replace broken image with fallback text
+  document.querySelectorAll(".sponsor-logo img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      img.parentElement.textContent = "[Logo]";
+    });
+  });
+
+  // Wire up modal image error handling once at init
+  if (modalImg) {
+    modalImg.addEventListener("error", function () {
+      modalImg.style.display = "none";
+    });
+  }
+
+  function openJudgeModal(judgeId, triggerCard) {
+    var judge = judgeData[judgeId];
+    if (!judge || !modal) return;
+
+    activeCard = triggerCard || null;
+    prevOverflow = document.body.style.overflow;
+
+    modalImg.style.display = "";
+    modalImg.src = judge.img;
+    modalImg.alt = judge.name;
+    modalName.textContent = judge.name;
+    modalBio.textContent = judge.bio;
+
+    // Build social links
+    modalSocials.innerHTML = "";
+    judge.socials.forEach(function (s) {
+      var a = document.createElement("a");
+      a.href = s.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.setAttribute("aria-label", s.label);
+      a.setAttribute("title", s.label);
+      a.textContent = s.icon;
+      modalSocials.appendChild(a);
+    });
+
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if (modalClose) modalClose.focus();
+  }
+
+  function closeJudgeModal() {
+    if (!modal) return;
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = prevOverflow;
+    if (activeCard) {
+      activeCard.focus();
+      activeCard = null;
+    }
+  }
+
+  // Attach click handlers to judge cards
+  document.querySelectorAll(".judge-card[data-judge]").forEach(function (card) {
+    card.addEventListener("click", function () {
+      openJudgeModal(card.getAttribute("data-judge"), card);
+    });
+  });
+
+  // Close modal
+  if (modalClose) {
+    modalClose.addEventListener("click", closeJudgeModal);
+  }
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", closeJudgeModal);
+  }
+
+  // Close on Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && modal.getAttribute("aria-hidden") === "false") {
+      closeJudgeModal();
+    }
+  });
 });
