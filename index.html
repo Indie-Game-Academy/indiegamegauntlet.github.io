@@ -154,39 +154,39 @@
         <p class="season-description">[Placeholder — describe the current season theme, dates, and what makes it unique.]</p>
       </div>
 
-      <h3 class="text-center" style="margin-top:2rem;">Meet the Judges</h3>
+      <h3 class="text-center season-judges-heading">Meet the Judges</h3>
       <div class="judge-roster">
         <!-- Judge 1 -->
-        <button class="judge-card" data-judge="judge-1" aria-label="View details for Judge 1">
+        <button type="button" class="judge-card" data-judge="judge-1" aria-label="View details for Judge 1">
           <div class="judge-card__portrait">
-            <img src="assets/images/judge-placeholder.png" alt="[Judge 1 Name]" onerror="this.style.display='none'" />
+            <img src="assets/images/judge-placeholder.png" alt="[Judge 1 Name]" />
             <div class="judge-card__placeholder-icon">👤</div>
           </div>
           <span class="judge-card__name">[Judge 1]</span>
         </button>
 
         <!-- Judge 2 -->
-        <button class="judge-card" data-judge="judge-2" aria-label="View details for Judge 2">
+        <button type="button" class="judge-card" data-judge="judge-2" aria-label="View details for Judge 2">
           <div class="judge-card__portrait">
-            <img src="assets/images/judge-placeholder.png" alt="[Judge 2 Name]" onerror="this.style.display='none'" />
+            <img src="assets/images/judge-placeholder.png" alt="[Judge 2 Name]" />
             <div class="judge-card__placeholder-icon">👤</div>
           </div>
           <span class="judge-card__name">[Judge 2]</span>
         </button>
 
         <!-- Judge 3 -->
-        <button class="judge-card" data-judge="judge-3" aria-label="View details for Judge 3">
+        <button type="button" class="judge-card" data-judge="judge-3" aria-label="View details for Judge 3">
           <div class="judge-card__portrait">
-            <img src="assets/images/judge-placeholder.png" alt="[Judge 3 Name]" onerror="this.style.display='none'" />
+            <img src="assets/images/judge-placeholder.png" alt="[Judge 3 Name]" />
             <div class="judge-card__placeholder-icon">👤</div>
           </div>
           <span class="judge-card__name">[Judge 3]</span>
         </button>
 
         <!-- Judge 4 -->
-        <button class="judge-card" data-judge="judge-4" aria-label="View details for Judge 4">
+        <button type="button" class="judge-card" data-judge="judge-4" aria-label="View details for Judge 4">
           <div class="judge-card__portrait">
-            <img src="assets/images/judge-placeholder.png" alt="[Judge 4 Name]" onerror="this.style.display='none'" />
+            <img src="assets/images/judge-placeholder.png" alt="[Judge 4 Name]" />
             <div class="judge-card__placeholder-icon">👤</div>
           </div>
           <span class="judge-card__name">[Judge 4]</span>
@@ -196,7 +196,7 @@
   </section>
 
   <!-- Judge Detail Modal -->
-  <div class="judge-modal" id="judge-modal" aria-hidden="true" role="dialog" aria-labelledby="judge-modal-name">
+  <div class="judge-modal" id="judge-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="judge-modal-name">
     <div class="judge-modal__backdrop"></div>
     <div class="judge-modal__content">
       <button class="judge-modal__close" aria-label="Close">&times;</button>
@@ -221,40 +221,40 @@
 
       <!-- Tier 1 — Top-level sponsors -->
       <div class="sponsor-row sponsor-row--tier1">
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 1]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 1]" />
         </a>
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 2]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 2]" />
         </a>
       </div>
 
       <!-- Tier 2 — Mid-level sponsors -->
       <div class="sponsor-row sponsor-row--tier2">
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 3]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 3]" />
         </a>
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 4]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 4]" />
         </a>
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 5]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Sponsor 5]" />
         </a>
       </div>
 
       <!-- Tier 3 — Community friends -->
       <div class="sponsor-row sponsor-row--tier3">
         <span class="sponsor-logo">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 1]" onerror="this.parentElement.textContent='[Logo]'" />
+          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 1]" />
         </span>
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 2]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 2]" />
         </a>
         <span class="sponsor-logo">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 3]" onerror="this.parentElement.textContent='[Logo]'" />
+          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 3]" />
         </span>
-        <a href="#" class="sponsor-logo" target="_blank" rel="noopener">
-          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 4]" onerror="this.parentElement.textContent='[Logo]'" />
+        <a href="#" class="sponsor-logo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/sponsor-placeholder.png" alt="[Friend 4]" />
         </a>
       </div>
     </div>

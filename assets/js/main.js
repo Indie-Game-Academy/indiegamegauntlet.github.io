@@ -67,11 +67,38 @@ document.addEventListener("DOMContentLoaded", function () {
   var modalSocials = document.getElementById("judge-modal-socials");
   var modalClose = modal ? modal.querySelector(".judge-modal__close") : null;
   var modalBackdrop = modal ? modal.querySelector(".judge-modal__backdrop") : null;
+  var activeCard = null;
+  var prevOverflow = "";
 
-  function openJudgeModal(judgeId) {
+  // Wire up card image error handling to hide broken images and show placeholder
+  document.querySelectorAll(".judge-card[data-judge] .judge-card__portrait img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      img.style.display = "none";
+    });
+  });
+
+  // Wire up sponsor image error handling — replace broken image with fallback text
+  document.querySelectorAll(".sponsor-logo img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      img.parentElement.textContent = "[Logo]";
+    });
+  });
+
+  // Wire up modal image error handling once at init
+  if (modalImg) {
+    modalImg.addEventListener("error", function () {
+      modalImg.style.display = "none";
+    });
+  }
+
+  function openJudgeModal(judgeId, triggerCard) {
     var judge = judgeData[judgeId];
     if (!judge || !modal) return;
 
+    activeCard = triggerCard || null;
+    prevOverflow = document.body.style.overflow;
+
+    modalImg.style.display = "";
     modalImg.src = judge.img;
     modalImg.alt = judge.name;
     modalName.textContent = judge.name;
@@ -83,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var a = document.createElement("a");
       a.href = s.url;
       a.target = "_blank";
-      a.rel = "noopener";
+      a.rel = "noopener noreferrer";
       a.setAttribute("aria-label", s.label);
       a.setAttribute("title", s.label);
       a.textContent = s.icon;
@@ -98,13 +125,17 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeJudgeModal() {
     if (!modal) return;
     modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    document.body.style.overflow = prevOverflow;
+    if (activeCard) {
+      activeCard.focus();
+      activeCard = null;
+    }
   }
 
   // Attach click handlers to judge cards
   document.querySelectorAll(".judge-card[data-judge]").forEach(function (card) {
     card.addEventListener("click", function () {
-      openJudgeModal(card.getAttribute("data-judge"));
+      openJudgeModal(card.getAttribute("data-judge"), card);
     });
   });
 

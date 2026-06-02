@@ -436,6 +436,10 @@ p {
   opacity: 0.85;
 }
 
+.season-judges-heading {
+  margin-top: 2rem;
+}
+
 /* Judge Roster — Character‑Select Grid */
 .judge-roster {
   display: grid;
@@ -530,6 +534,8 @@ p {
   padding: 2rem;
   max-width: 420px;
   width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
   text-align: center;
   animation: modalIn 0.25s ease;
   z-index: 1;
